@@ -13,6 +13,7 @@
   font-family: "Arvo";
   src: url("/fonts/Arvo-Regular.ttf") format("truetype");
 }
+
 body {
   box-sizing: border-box;
   background-color: #ecf0f1;

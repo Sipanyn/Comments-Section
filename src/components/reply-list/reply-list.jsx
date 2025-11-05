@@ -1,14 +1,10 @@
 import UserReplyComponent from "../user-reply-component/user-reply-component";
 import styles from "./reply-list.module.css";
 
-const ReplyList = () => {
+const ReplyList = ({ rply }) => {
   return (
     <div className={styles.ReplyList_container}>
-      {Array(2)
-        .fill()
-        .map((item, i) => {
-          return <UserReplyComponent key={i} />;
-        })}
+      <UserReplyComponent rply={rply} />
     </div>
   );
 };
