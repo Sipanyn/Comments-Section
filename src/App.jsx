@@ -12,7 +12,7 @@ function App() {
   const setReplies = useSupa((state) => state.setReplies);
   const setUser = useSupa((state) => state.setUser);
   useEffect(() => {
-    if (replyQuery && commentQuery.data) {
+    if (replyQuery && commentQuery.data && UserQuery.data) {
       setReplies(replyQuery.data);
       setData(commentQuery.data);
       setUser(UserQuery.data);

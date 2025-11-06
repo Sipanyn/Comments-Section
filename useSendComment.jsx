@@ -1,8 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import supabase from "/supabase-client.js";
 import { useSupa } from "./src/supa-Store";
+import { queryClient } from "./queryClient";
 
 export const useSendComment = () => {
+  const setData = useSupa((state) => state.setData);
+  const setReplies = useSupa((state) => state.setReplies);
   const supa_user = useSupa((state) => state.supa_user);
 
   const setTextBoxValueFree = useSupa((state) => state.setTextBoxValueFree);
@@ -32,8 +35,15 @@ export const useSendComment = () => {
         return data;
       }
     },
-    onSuccess: () => {
-      console.log("i want to rerender to show new commnet");
+    onSuccess: async () => {
+      await queryClient.invalidateQueries(["replies"]);
+      await queryClient.invalidateQueries(["comments"]);
+
+      const replyQuery = queryClient.getQueryData(["replies"]);
+      const commentQuery = queryClient.getQueryData(["comments"]);
+
+      setReplies(replyQuery.data);
+      setData(commentQuery.data);
     },
   });
 };
