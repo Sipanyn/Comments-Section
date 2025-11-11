@@ -31,7 +31,6 @@ export const useSendRply = () => {
             content: RplyContent,
             image_url: supa_user?.[0]?.[0].image_url,
             username: supa_user?.[0]?.[0].username,
-            // comment_id: 1,
             ...(selectedComment || selectedRply
               ? {
                   comment_id:

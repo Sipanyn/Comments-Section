@@ -1,0 +1,23 @@
+.UpdateComponent {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  color: white;
+  background-color: #8207db;
+  font-weight: bold;
+  padding: 6px 16px;
+  border-radius: 4px;
+  gap: 5px;
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+  height: fit-content;
+  &:hover {
+    background-color: #be88e5;
+  }
+}
+@media (max-width: 550px) {
+  .UpdateComponent {
+    font-size: small;
+  }
+}

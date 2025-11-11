@@ -7,12 +7,20 @@ import { useSupa } from "../../supa-Store";
 import CustomTextBox from "../custom-text-box/custom-text-box";
 import DeleteComponent from "../delete-component/delete-component";
 import EditComponent from "../edit-component/edit-component";
+import UpdateComponent from "../update-component/update-component";
+import { useUpdateCm } from "../../utils/useUpdateCm";
+import { useUpdateRp } from "../../utils/useUpdateRp";
 
 const CommentComponent = ({ item }) => {
   const supa_replies = useSupa((state) => state.supa_replies);
   const setSelectedComment = useSupa((state) => state.setSelectedComment);
   const setLastSelected = useSupa((state) => state.setLastSelected);
   const selectedComment = useSupa((state) => state.selectedComment);
+  const selectedCmToEdit = useSupa((state) => state.selectedCmToEdit);
+  const openEdit = useSupa((state) => state.openEdit);
+  const { mutate: updateCm, isPending } = useUpdateCm();
+  const { mutate: updateRp } = useUpdateRp();
+
   return (
     <>
       <div className={styles.comment_container}>
@@ -25,15 +33,26 @@ const CommentComponent = ({ item }) => {
         {item.username === "Tom Rey" && (
           <div className={styles.delete_edit}>
             <DeleteComponent item={item} />
-            <EditComponent />
+            <EditComponent item={item} />
           </div>
         )}
         <div className={styles.ReplyComponent}>
-          <ReplyComponent
-            item={item}
-            setSelectedComment={setSelectedComment}
-            setLastSelected={setLastSelected}
-          />
+          {selectedCmToEdit?.id === item?.id &&
+          item?.username === "Tom Rey" &&
+          openEdit === true ? (
+            <UpdateComponent
+              item={item}
+              updateCm={updateCm}
+              updateRp={updateRp}
+              isPending={isPending}
+            />
+          ) : (
+            <ReplyComponent
+              item={item}
+              setSelectedComment={setSelectedComment}
+              setLastSelected={setLastSelected}
+            />
+          )}
         </div>
       </div>
       {selectedComment?.id === item.id && (

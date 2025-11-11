@@ -5,12 +5,12 @@ import styles from "./vote-component.module.css";
 const VoteComponent = ({ item, rply }) => {
   return (
     <div className={styles.vote_container}>
-      <IncrementComponent />
+      <IncrementComponent item={item} rply={rply} />
       <p className={styles.count}>
         {item?.votes}
         {rply?.votes}
       </p>
-      <DecremnetComponent />
+      <DecremnetComponent item={item} rply={rply} />
     </div>
   );
 };

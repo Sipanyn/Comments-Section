@@ -8,3 +8,8 @@
   outline-color: #8f00f6;
   border-color: #8207db;
 }
+@media (max-width: 550px) {
+  .textarea {
+    width: 180%;
+  }
+}

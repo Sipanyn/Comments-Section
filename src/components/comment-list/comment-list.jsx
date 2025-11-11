@@ -7,7 +7,7 @@ const CommentList = () => {
 
   return (
     <div className={styles.CommentList_container}>
-      {supa_data[0]?.map((item) => {
+      {supa_data?.map((item) => {
         return <CommentComponent key={item.id} item={item} />;
       })}
     </div>

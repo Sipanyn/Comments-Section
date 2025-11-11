@@ -1,3 +1,4 @@
+import { useSupa } from "../../supa-Store";
 import styles from "./reply-component.module.css";
 
 const ReplyComponent = ({
@@ -6,6 +7,7 @@ const ReplyComponent = ({
   rply,
   item,
 }) => {
+  const selectedCmToEdit = useSupa((state) => state.selectedCmToEdit);
   return (
     <div
       onClick={() => {
