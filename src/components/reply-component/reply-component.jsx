@@ -7,7 +7,6 @@ const ReplyComponent = ({
   rply,
   item,
 }) => {
-  const selectedCmToEdit = useSupa((state) => state.selectedCmToEdit);
   return (
     <div
       onClick={() => {

@@ -6,14 +6,18 @@ const DecremnetComponent = ({ item, rply }) => {
   const { mutate: decreaseRpVote } = useDecreaseRpVote();
   const { mutate: decreaseVote } = useDecreaseCmVote();
   return (
-    <div
+    <button
+      disabled={
+        (item && item.isVoted === "decreased") ||
+        (rply && rply.isVoted === "decreased")
+      }
       onClick={() => {
         item ? decreaseVote(item) : decreaseRpVote(rply);
       }}
       className={styles.decrement}
     >
       -
-    </div>
+    </button>
   );
 };
 

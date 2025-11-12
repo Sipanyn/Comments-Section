@@ -1,5 +1,6 @@
 import { useSupa } from "../../supa-Store";
 import CommentComponent from "../comment-component/comment-component";
+
 import styles from "./comment-list.module.css";
 
 const CommentList = () => {

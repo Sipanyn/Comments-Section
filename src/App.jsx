@@ -27,10 +27,12 @@ function App() {
   }
 
   return (
-    <div className="main">
-      <CommentList />
+    <>
+      <div className="main">
+        <CommentList />
+      </div>
       <MainTextBox />
-    </div>
+    </>
   );
 }
 

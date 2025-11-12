@@ -6,14 +6,18 @@ const IncrementComponent = ({ item, rply }) => {
   const { mutate: increaseVote } = useIncreaseCmVote();
   const { mutate: increaseRpVote } = useIncreaseRpVote();
   return (
-    <div
+    <button
+      disabled={
+        (item && item.isVoted === "increased") ||
+        (rply && rply.isVoted === "increased")
+      }
       onClick={() => {
         item ? increaseVote(item) : increaseRpVote(rply);
       }}
       className={styles.increment}
     >
       +
-    </div>
+    </button>
   );
 };
 

@@ -1,6 +1,11 @@
 .decrement {
-  color: #9fb3b8;
+  color: #707b7c;
   font-weight: bold;
   cursor: grab;
   user-select: none;
+  outline: none;
+  border: none;
+}
+.decrement:disabled {
+  opacity: 0.1;
 }

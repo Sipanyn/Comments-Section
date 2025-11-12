@@ -11,16 +11,27 @@ export const useDecreaseRpVote = () => {
         .from("replies")
         .select("votes")
         .eq("id", rply.id)
-        .single();
+        .select();
       if (error) {
         console.log(error);
       }
-      if (data) {
-        const newVotes = data.votes - 1;
+      if (data?.[0].isVoted === "Not") {
+        const newVotes = data[0].votes - 1;
 
         const { error } = await supabase
           .from("replies")
-          .update({ votes: newVotes })
+          .update({ votes: newVotes, isVoted: "decreased" })
+          .eq("id", rply.id);
+        if (error) {
+          console.log(error);
+        }
+      }
+      if (data?.[0].isVoted === "increased") {
+        const newVotes = data[0].votes - 2;
+
+        const { error } = await supabase
+          .from("replies")
+          .update({ votes: newVotes, isVoted: "decreased" })
           .eq("id", rply.id);
         if (error) {
           console.log(error);

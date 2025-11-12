@@ -8,11 +8,19 @@ export const useDeleteCm = () => {
 
   return useMutation({
     mutationFn: async (item) => {
-      const { error } = await supabase
+      const { error, data } = await supabase
         .from("comments")
         .delete()
-        .eq("id", item.id);
+        .eq("id", item.id)
+        .select();
+      if (data) {
+        const { error, data } = await supabase
+          .from("replies")
+          .delete()
+          .eq("comment_id", item.comment_id);
+      }
     },
+
     onSuccess: async () => {
       await queryClient.invalidateQueries(["replies"]);
       await queryClient.invalidateQueries(["comments"]);
