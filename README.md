@@ -1,16 +1,37 @@
-# React + Vite
+# 🗨️ Comments Section
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modular, scalable comment and reply system built with **React**, **Supabase**, and **React Query**. This project demonstrates relational data modeling, animated loaders, accessible UI components, and robust error handling — perfect for modern web apps that need interactive user feedback.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🧵 Nested replies linked to parent comments via Supabase foreign keys
+- ⚡ Modular React Query hooks for fetching and mutating data
+- 🎨 Accessible, polished UI with animated loaders and disabled states
+- 🛠️ Graceful error handling and empty state UX
+- 📦 Supabase backend with GUI-based relational table management
 
-## React Compiler
+## 🧩 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Frontend       | Backend      | State & Data              | Styling       |
+|----------------|--------------|---------------------------|---------------|
+| React + Vite   | Supabase     | React Query + Zustand     | CSS Modules   |
 
-## Expanding the ESLint configuration
+## 🗃️ Database Schema
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `comments`: Top-level comments
+- `replies`: Replies linked to `comments` via `comment_id`
+- Relationships managed visually in Supabase Table Editor
+
+## 📸 UI Highlights
+
+- Animated spinners during fetches
+- Accessible buttons with disabled states
+- Responsive layout for nested threads
+
+## 🛠️ Getting Started
+
+```bash
+git clone https://github.com/Sipanyn/Comments-Section
+cd Comments-Section
+npm install
+npm run dev
