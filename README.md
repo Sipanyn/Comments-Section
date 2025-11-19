@@ -12,9 +12,9 @@ A modular, scalable comment and reply system built with **React**, **Supabase**,
 
 ## 🧩 Tech Stack
 
-| Frontend       | Backend      | State & Data              | Styling       |
-|----------------|--------------|---------------------------|---------------|
-| React + Vite   | Supabase     | React Query + Zustand     | CSS Modules   |
+| Frontend       | Backend      | State & Data                 | Styling       |
+|----------------|--------------|------------------------------|---------------|
+| React + Vite   | Supabase     | TanStack Query + Zustand     | CSS Modules   |
 
 ## 🗃️ Database Schema
 
