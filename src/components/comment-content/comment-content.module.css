@@ -3,5 +3,10 @@
   font-size: smaller;
   margin: 0;
   line-height: 22px;
-  width: 180%;
+}
+
+@media (max-width: 550px) {
+  .content {
+    width: 180%;
+  }
 }

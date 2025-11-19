@@ -9,7 +9,6 @@ const UserInfo = ({ item, rply }) => {
   const formattedDate = date.toLocaleDateString("en-US", options);
   const selectedCmToEdit = useSupa((state) => state.selectedCmToEdit);
   const selectedRpToEdit = useSupa((state) => state.selectedRpToEdit);
-  const editableContent = useSupa((state) => state.editableContent);
   const openEdit = useSupa((state) => state.openEdit);
   return (
     <div className={styles.userInfo_container}>
