@@ -22,7 +22,7 @@ function App() {
   if (commentQuery.isLoading && replyQuery.isLoading && UserQuery.isLoading) {
     return <SvgSpinners12DotsScaleRotate />;
   }
-  if (replyQuery.isError || commentQuery.isError || UserQuery.isLoading) {
+  if (replyQuery.isError || commentQuery.isError || UserQuery.isError) {
     return <QueryErrorMessage />;
   }
 
