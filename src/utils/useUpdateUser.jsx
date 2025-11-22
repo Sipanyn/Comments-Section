@@ -1,9 +1,12 @@
 import supabase from "../../supabase-client";
 import { useMutation } from "@tanstack/react-query";
 import { useSupa } from "../supa-Store";
+import { queryClient } from "../../queryClient";
 
 export const useUpdateUser = () => {
   const supa_user = useSupa((state) => state.supa_user);
+  const setReplies = useSupa((state) => state.setReplies);
+  const setData = useSupa((state) => state.setData);
 
   return useMutation({
     mutationFn: async (ip) => {
@@ -42,6 +45,16 @@ export const useUpdateUser = () => {
       }
 
       return { message: "IP unchanged, no update performed." };
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries(["replies"]);
+      await queryClient.invalidateQueries(["comments"]);
+
+      const RpQuery = queryClient.getQueryData(["replies"]);
+      const commentQuery = queryClient.getQueryData(["comments"]);
+
+      setData(commentQuery.data);
+      setReplies(RpQuery.data);
     },
   });
 };
