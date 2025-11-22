@@ -8,3 +8,18 @@
   outline-color: #8f00f6;
   border-color: #8207db;
 }
+.textarea {
+  width: 95%;
+  resize: none;
+  padding: 5px;
+  border-radius: 4px;
+  height: 5lh;
+  box-sizing: content-box;
+  border: 1px solid #8207db;
+  outline: none;
+}
+
+.textarea:focus {
+  border-color: #8f00f6;
+  box-shadow: 0 0 0 2px #8207db;
+}

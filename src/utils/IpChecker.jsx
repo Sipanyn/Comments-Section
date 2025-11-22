@@ -21,5 +21,5 @@ export default function IpChecker() {
     fetchIP();
   }, []);
 
-  return <div>Your IP address: {ip}</div>;
+  return;
 }

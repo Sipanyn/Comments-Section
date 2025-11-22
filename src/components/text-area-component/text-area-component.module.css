@@ -5,6 +5,11 @@
   border-radius: 4px;
   height: 5lh;
   box-sizing: content-box;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.textarea:focus {
   border-color: lightgray;
-  outline-color: lightgray;
+  box-shadow: 0 0 0 2px #e0e0e0;
 }
