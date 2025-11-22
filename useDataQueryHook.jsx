@@ -20,7 +20,10 @@ export default function useDataQueryHook() {
   const replyQuery = useQuery({
     queryKey: ["reply"],
     queryFn: async () => {
-      let { data, error } = await supabase.from("replies").select("*");
+      let { data, error } = await supabase
+        .from("replies")
+        .select("*")
+        .order("created_at", { ascending: true });
       if (error) {
         console.log(error);
       } else {
