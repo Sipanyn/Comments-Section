@@ -1,6 +1,5 @@
 import supabase from "../../supabase-client";
 import { useMutation } from "@tanstack/react-query";
-import { queryClient } from "../../queryClient";
 import { useSupa } from "../supa-Store";
 
 export const useUpdateUser = () => {
