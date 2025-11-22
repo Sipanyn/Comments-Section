@@ -11,7 +11,11 @@ export const useSupa = create((set) => ({
   selectedRpToEdit: null,
   editableContent: "",
   openEdit: false,
-
+  ip: "",
+  setIp: (ip) =>
+    set({
+      ip: ip,
+    }),
   setData: (items) => set({ supa_data: items }),
   setReplies: (item) => {
     set({

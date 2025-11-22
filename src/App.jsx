@@ -6,11 +6,13 @@ import { useEffect } from "react";
 import { useSupa } from "./supa-Store";
 import { SvgSpinners12DotsScaleRotate } from "./components/spinner/spinner";
 import QueryErrorMessage from "./components/query-error-message/query-error-message";
+import IpChecker from "./utils/IpChecker";
 function App() {
   const { commentQuery, replyQuery, UserQuery } = useDataQueryHook();
   const setData = useSupa((state) => state.setData);
   const setReplies = useSupa((state) => state.setReplies);
   const setUser = useSupa((state) => state.setUser);
+
   useEffect(() => {
     if (replyQuery && commentQuery.data && UserQuery.data) {
       setReplies(replyQuery.data);
@@ -25,13 +27,13 @@ function App() {
   if (replyQuery.isError || commentQuery.isError || UserQuery.isError) {
     return <QueryErrorMessage />;
   }
-
   return (
     <>
       <div className="main">
         <CommentList />
       </div>
       <MainTextBox />
+      <IpChecker />
     </>
   );
 }
